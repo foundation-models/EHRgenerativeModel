@@ -15,7 +15,7 @@ from sklearn.model_selection import StratifiedKFold
 from sklearn.metrics import roc_auc_score
 from sklearn.preprocessing import Imputer
 
-import classes.rfc as rfc
+from classes import rfc
 import classes.svm as svm
 import classes.full_rf as fullrfc
 import classes.nearest_neighbors as nearest_neighbors
