@@ -11,7 +11,7 @@ import theano
 import theano.tensor as T
 import train_dAs as trainer
 
-from sklearn.cross_validation import StratifiedKFold
+from sklearn.model_selection import StratifiedKFold
 from sklearn.metrics import roc_auc_score
 from sklearn.preprocessing import Imputer
 
