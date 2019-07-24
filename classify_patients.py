@@ -124,13 +124,14 @@ def classify(X, y, dAs):
     methods = {'rfc': rfc, 'fullrfc': fullrfc, 'svm': svm,
                'tree': tree, 'nearest_neighbors': nearest_neighbors}
 
-    cv = StratifiedKFold(y, n_folds=10, random_state=123)
+    skf = StratifiedKFold(n_splits=10, random_state=123)
+    skf.get_n_splits(X, y)
     prob_methods = {}
     scores = {}
     labels = []
 
     i_theano = T.dmatrix('i_theano')
-    for i, (train, test) in enumerate(cv):
+    for i, (train, test) in skf.split(X, y):
         for p_count in dAs.keys():
             for nodes in dAs[p_count].keys():
                 get_hidden = dAs[p_count][nodes].get_hidden_values(i_theano)
