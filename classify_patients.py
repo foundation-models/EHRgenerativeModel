@@ -131,7 +131,7 @@ def classify(X, y, dAs):
     labels = []
 
     i_theano = T.dmatrix('i_theano')
-    for i, (train, test) in skf.split(X, y):
+    for train, test in skf.split(X, y):
         for p_count in dAs.keys():
             for nodes in dAs[p_count].keys():
                 get_hidden = dAs[p_count][nodes].get_hidden_values(i_theano)
